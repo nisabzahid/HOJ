@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Problems</title>
+{% endblock %}
+{% block content %}
+<h2 align = 'center'> Problem Sets</h2>
+<table class="table table-sm table-striped table-bordered w-auto" align="center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Problem Title</th>
+      <th scope="col">No. of Submissions</th>
+      <th scope="col">No. of Accepted</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% for problem in problems %}
+        <tr>
+          <th scope="row"><a href="/problem/{{problem.id}}"> {{problem.id}}</a></th>
+          <td><a href="/problem/{{problem.id}}">{{problem.title}}</a></td>
+          <td align = 'center'>{{problem.no_of_submissions}}</td>
+          <td align = 'center'>{{problem.no_of_accepted}}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

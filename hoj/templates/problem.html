@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>{{problem.title}}</title>
+{% endblock %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 0px 0px #E3E7EB;
+    }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-4 left  top">
+      <div class="card-body">
+
+<h1>{{problem.id}}. {{problem.title}}</h1>
+<pre>Time Limit: {{problem.time_limit.0}}secs   Memory Limit: {{problem.memory_limit}}MB</pre>
+<p>{{problem.description | safe}}</p>
+<table border = '2'>
+    <tr>
+        <th>Sample Input</th>
+        <th>Sample Output</th>
+    <tr>
+        <td>{{problem.sample_input | safe}}
+        <td>{{problem.sample_output | safe}}
+</table>
+
+<!-- Sidebar Widgets Column -->
+</div>
+</div>
+<div class="col-md-4 float-right ">
+<div class="card my-4">
+        <h5 class="card-header">Submit Your Solution</h5>
+    <div class="card-body">
+        <form method = 'POST' enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    {% if user.is_authenticated %}
+        <button type = 'submit' class="btn btn-primary">Submit Code</button>
+    {% else %}
+    <p><font color ='red'>Please <a href = '{% url 'login' %}?next={{request.path}}'>Sign in</a> for submit</font></p>
+    {% endif %}
+    
+</form>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}

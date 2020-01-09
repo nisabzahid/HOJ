@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>User Profile</title>
+{% endblock %}
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+    
+    .card {
+        box-shadow: 0 0px 0px #E3E7EB;
+        height : 300px;
+    }
+</style>
+
+<div class="container">
+  <div class="row">
+
+
+<!-- Sidebar Widgets Column -->
+</div>
+</div>
+<div class="col-md-8 left top ">
+<div class="card my-4">
+        <h5 class="card-header">Profile</h5>
+    <div class="card-body">
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">Fullname</th>
+      <th scope="col">Email</th>
+      <th scope="col">Problem Tried</th>
+      <th scope="col">Problem Solved</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{user.id}}</th>
+      <td>{{user.username}}</td>
+      <td>{{user.full_name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.problem_tried}}</td>
+      <td>{{user.problem_solved}}</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}

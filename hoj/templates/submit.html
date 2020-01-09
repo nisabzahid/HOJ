@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Submission</title>
+{% endblock %}
+{% block content %}
+<h2 align = 'center'> Submissions</h2>
+<table class="table table-sm table-striped table-bordered w-auto" align="center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Submission Time</th>
+      <th scope="col">User</th>
+      <th scope="col">Problem Title</th>
+      <th scope="col">Language</th>
+      <th scope="col">Verdict</th>
+      <th scope="col">Time</th>
+      <th scope="col">Memory</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% for sub in submission %}
+        <tr>
+          <th scope="row">{{sub.id}}</th>
+          <td>{{sub.timestamp}}</td>
+          <td>{{sub.user_id.username}}</td>
+          <td align = 'center'><a href="/problem/{{sub.problem_id.id}}">{{sub.problem_id.title}}</a></td>
+          <td align = 'center'>{{sub.language}}</td>
+          <td align = 'center'>{{sub.get_verdict_display}}</td>
+          <td align = 'center'>{{sub.time}}</td>
+          <td align = 'center'>{{sub.memory}}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
