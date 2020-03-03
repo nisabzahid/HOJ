@@ -25,3 +25,7 @@ Guest user can only -
           See the live submissions.
 
 
+![](class_diagram_of_OnlineJudge.png)
+Class Diagram of the project
+![](entity_diagram_of_OnlineJudge.png)
+Entity diagram of the project
