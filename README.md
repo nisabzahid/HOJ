@@ -1,6 +1,6 @@
 # HOJ
 an online judge for competitive programmers
-the project has been build with django, postgreql 
+the project has been build with django, postgresql 
 
 
 The proposed system is designed for 3 types of users:
